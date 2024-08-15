@@ -31,7 +31,7 @@ void xtea_decipher(unsigned int num_rounds, uint32_t *v, uint32_t const *k) {
 int main() {
     uint32_t key[4] = {0x01234567, 0x89ABCDEF, 0xFEDCBA98, 0x76543210};
     uint32_t data[2] = {0x12345678, 0x9ABCDEF0};
-    unsigned int num_rounds = 64;
+    unsigned int num_rounds = 32;
 
     printf("Original Data: %08X %08X\n", data[0], data[1]);
 
@@ -45,29 +45,3 @@ int main() {
 
     return 0;
 }
-
-//===heh===
-
-//void xtea_encrypt(uint32_t *v, uint32_t *k) {
- //   uint32_t v0 = v[0], v1 = v[1], sum = 0, i;
-  //  for (i = 0; i < ROUNDS; i++) {
- //       v0 += (((v1 << 4) ^ (v1 >> 5)) + v1) ^ (sum + k[sum & 3]);
-  //      sum += DELTA;
-  //      v1 += (((v0 << 4) ^ (v0 >> 5)) + v0) ^ (sum + k[(sum >> 11) & 3]);
-  //  }
- //   v[0] = v0; v[1] = v1;
-//}
-
-
-
-
-//void xtea_decrypt(uint32_t *v, uint32_t *k) {
- //   uint32_t v0 = v[0], v1 = v[1], sum = DELTA * ROUNDS;
- //   int i;
-  //  for (i = 0; i < ROUNDS; i++) {
-   //     v1 -= (((v0 << 4) ^ (v0 >> 5)) + v0) ^ (sum + k[(sum >> 11) & 3]);
- //       sum -= DELTA;
-   //     v0 -= (((v1 << 4) ^ (v1 >> 5)) + v1) ^ (sum + k[sum & 3]);
-  //  }
-  //  v[0] = v0; v[1] = v1;
-//}
