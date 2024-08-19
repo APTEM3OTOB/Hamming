@@ -1,8 +1,8 @@
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Made by APTEM 3OTOB %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%//
-#define HAMMING_H
-#ifdef HAMMING_H
-#define m1 70
+#define XTEA_H
+#ifdef XTEA_H
+#include <stdint.h>
 
-char** hamming(char bin_array[][m1], int length_a);
+char** xtea(uint32_t hex_array[][2], int length);
 
 #endif
